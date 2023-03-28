@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 });
+
+// ------ Event List CRUD
+// GET list of events
+Route::get('/eventlist', [EventController::class,'index']);
+// CREATE event
+Route::get('/addevent', [EventController::class,'create']);
+Route::post('/addevent', [EventController::class,'store']);
+// UPDATE event
+Route::get('/editevent/{event}', [EventController::class,'edit']);
+Route::post('/editevent/{event}', [EventController::class,'update']);
+// DELETE event
+Route::delete('/eventlist/{event}', [EventController::class,'destroy']);
+
+// ------ User List CRUD
+Route::get('/users', [UserController::class,'index']);
+// filter users by role
+Route::post('/userByRole', [UserController::class,'userByRole']);
