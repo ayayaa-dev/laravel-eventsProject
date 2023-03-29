@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,7 +36,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles=array('admin','manager','user');
+        return view('users.create', compact('roles'));
+
     }
 
     /**
@@ -102,6 +104,7 @@ class UserController extends Controller
                 'role' => $request->role
             ]);
         }
+        return redirect('users');
     }
 
     /**

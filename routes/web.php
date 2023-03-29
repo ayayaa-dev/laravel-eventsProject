@@ -35,3 +35,9 @@ Route::delete('/eventlist/{event}', [EventController::class,'destroy']);
 Route::get('/users', [UserController::class,'index']);
 // filter users by role
 Route::post('/userByRole', [UserController::class,'userByRole']);
+// CREATE user
+Route::get('/adduser', [UserController::class,'create']);
+Route::post('/adduser', [UserController::class,'store']);
+// UPDATE event
+Route::get('/edituser/{user}', [UserController::class,'edit']);
+Route::post('/edituser/{user}', [UserController::class,'update']);
