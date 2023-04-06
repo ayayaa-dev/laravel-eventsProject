@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,10 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('start'); // start login form
 });
 
+Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
 // ------ Event List CRUD
 // GET list of events
 Route::get('/eventlist', [EventController::class,'index']);
@@ -41,3 +44,12 @@ Route::post('/adduser', [UserController::class,'store']);
 // UPDATE event
 Route::get('/edituser/{user}', [UserController::class,'edit']);
 Route::post('/edituser/{user}', [UserController::class,'update']);
+// ----
+Route::get('/profile/{user}', [UserController::class,'edit']);
+Route::get('/edituser/{user}', [UserController::class,'edit']);
+Route::post('/edituser/{user}', [UserController::class,'update']);
+
+// ------ Login to admin panel
+Route::get('/login', [AuthController::class, 'login'])->name('login'); // view login form page
+Route::post('/login', [AuthController::class, 'authenticate']); // authenticate credentials in login form
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label for="role" class="col-sm-3 control-label">Role:</label>
                     <div class="col-sm-2">
-                        <select name="role" class="from-control input-sm">
+                        <select name="role" class="from-control input-sm" @if( Auth::user()->role!='admin') disabled @endif>
                             @foreach($roles as $role)
                             <option value="{{$role}}"
                             @if($role==$user->role) selected @endif
