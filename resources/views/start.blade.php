@@ -10,14 +10,16 @@
                 {{ session()->get('error') }}
             </div>
             @endif
-            <p class="login-box-msg">Sign in</p>
+            <p class="login-box-msg">Log in</p>
             <form action="{{ url('login') }}" method="POST">
                 @csrf
-                <h1>Login form</h1>
+                <h1>Log in form</h1>
                 <div>
+                    <label>E-mail</label>
                     <input type="email" class="form-control" name="email" placeholder="Email" required autofocus>
                 </div>
                 <div>
+                    <label>Password</label>
                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
                 <div>
@@ -26,14 +28,13 @@
                 <div class="clearfix"></div>
                 <div class="separator">
                     <p class="change_link">
-                        <a href="#signup???" class="to_register"> Create account</a>
+                        <a href="/register" class="to_register"> Create account</a>
                     </p>
                     <div class="clearfix"></div>
                     <br>
                     <div>
                         <h1><i class="fa fa-cubes"></i> Login form</h1>
                         <p>&copy; 2023 Daniil Divissenko. JPTV20. IVKHK</p>
-                        {{-- a --}}
                     </div>
                 </div>
             </form>
