@@ -27,7 +27,7 @@
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="{{ url('/dashboard') }}" class="site_title"><i class="fa fa-paw"></i> 
-			  <span>Dashboard panel</span></a>
+			        <span>Dashboard panel</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -50,6 +50,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
+                  @if(Gate::allows('isAdmin') || Gate::allows('isManager'))
                   <li><a><i class="fa fa-home"></i> Events Manage </a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('/eventlist') }}">Events List</a></li>   
@@ -59,12 +60,15 @@
                     <ul class="nav child_menu">
                       <li><a href="{{ url('/registerlist') }}">Registration list</a></li>   
                     </ul>
-                  </li>				  
+                  </li>
+                  @endif
+                  @if(Gate::allows('isAdmin'))	  
                   <li><a><i class="fa fa-users"></i> Users Manage</a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('/users') }}">Users List</a></li>					  
                     </ul>
-                  </li>          
+                  </li> 
+                  @endif         
                 </ul>
               </div>  
             </div>

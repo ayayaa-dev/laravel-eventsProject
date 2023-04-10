@@ -10,7 +10,6 @@
                 {{ session()->get('error') }}
             </div>
             @endif
-            <p class="login-box-msg">Log in</p>
             <form action="{{ url('login') }}" method="POST">
                 @csrf
                 <h1>Log in form</h1>
@@ -33,7 +32,7 @@
                     <div class="clearfix"></div>
                     <br>
                     <div>
-                        <h1><i class="fa fa-cubes"></i> Login form</h1>
+                        <h1><i class="fa fa-cubes"></i> Log in form</h1>
                         <p>&copy; 2023 Daniil Divissenko. JPTV20. IVKHK</p>
                     </div>
                 </div>

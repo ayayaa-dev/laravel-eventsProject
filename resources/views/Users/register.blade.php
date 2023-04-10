@@ -6,7 +6,6 @@
     <div class="animate form login_form">
         <section class="login_content">
            @include('common.errors')
-            <p class="login-box-msg">Sign up</p>
             <form action="{{ url('signup') }}" method="POST">
                 {{ csrf_field() }}
                 <h1>Sign up form</h1>
@@ -29,9 +28,14 @@
                 <div>
                     <button type="submit" class="btn btn-default submit" name="signup"><i class="fa fa-sign-in"></i> Sign up</button>
                 </div>
-                <div class="clearfix"></div>
-                <h1><i class="fa fa-cubes"></i> Signup form</h1>
-                <p>&copy; 2023 Daniil Divissenko. JPTV20. IVKHK</p>
+                <div class="separator">
+                    <p class="change_link">
+                        <a href="/" class="to_register">Log in</a>
+                    </p>
+                    <div class="clearfix"></div>
+                    <h1><i class="fa fa-cubes"></i> Sign up form</h1>
+                    <p>&copy; 2023 Daniil Divissenko. JPTV20. IVKHK</p>
+                </div>
             </form>
         </section>
     </div>

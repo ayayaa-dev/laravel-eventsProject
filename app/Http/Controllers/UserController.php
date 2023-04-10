@@ -62,6 +62,17 @@ class UserController extends Controller
         ]);
         return redirect('users');
     }
+    public function register_store(Request $request)
+    {
+        // add new user query
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'user',
+        ]);
+        return view('users.registerResult');
+    }
 
     /**
      * Display the specified resource.
