@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label for="password" class="col-sm-3 control-label">Password:</label>
                         <div class="col-sm-2">
-                            <input type="password" name="password" id="password" class="form-control" minlength="6" required>
+                            <input type="password" name="password" id="password" class="form-control" minlength="6">
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="password" class="col-sm-3 control-label">Confirm Password:</label>
                         <div class="col-sm-2">
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" minlength="6" required>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" minlength="6">
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <label for="email" class="col-sm-3 control-label">Email:</label>
                         <div class="col-sm-2">
-                            <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}">
+                            <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}" @if( Auth::user()->role!='admin') readonly @endif>
                         </div>
                     </div>
                 </div>
