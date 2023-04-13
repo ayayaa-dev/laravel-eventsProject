@@ -11,10 +11,10 @@
     <link href='{{ asset("components/css/font-awesome/css/font-awesome.min.css") }}' rel="stylesheet"> 
     <!-- Custom Theme Style -->
     <link href='{{ asset("components/css/custom.min.css") }}' rel="stylesheet">
-    <title>Document</title>
+    <title>Main Page</title>
 </head>
 <body>
-    <div class="navbar-collapse collapse" id="collapsibleNavbar">
+    <div class="navbar-collapse" id="collapsibleNavbar">
         <!-- Left Side Of Navbar -->
         <div class="me-auto navbar-nav">
             <a class="navbar-brand" href="{{ url('/') }}">Home</a>
@@ -30,19 +30,34 @@
             @if (Auth::guest())
             <li><a href="{{ url('/login') }}" class="navbar-brand">Login</a></li>
             <li><a href="{{ url('/register') }}" class="navbar-brand">Register</a></li>
-            @else
-            <li><a href="{{ url('/dashboard') }}" class="navbar-brand">Admin panel</a></li>
-            <div class="dropdown ms-5">
-                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ Auth::user()->name }}
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                    <li><a class="dropdown-item" href={{url('/profile/'.Auth::user()->id )}}>Profile</a></li>
-                </ul>
-            </div>
-            @endif
+        @else
+        <li><a href="{{ url('/dashboard') }}" class="navbar-brand">Admin panel</a></li>
+        <div class="dropdown ms-5">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ Auth::user()->name }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li><a class="dropdown-item" href={{url('/profile/'.Auth::user()->id )}}>Profile</a></li>
+        </ul>
+        </div>
+        @endif
         </ul>
     </div>
+    <main>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Welcome to Events main page</h1>
+                        <hr>
+                        <div>
+                            @yield('content');
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
