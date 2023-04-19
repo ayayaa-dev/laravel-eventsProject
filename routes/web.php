@@ -18,7 +18,8 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('startMainPage'); // start login form
+    return view('startMainPage'); // start Main page
+    // return view('start'); // start Login form
 });
 // Login to admin panel
 Route::get('/login', [AuthController::class, 'login'])->name('login'); // view login form page

@@ -24,48 +24,38 @@
             {{ csrf_field() }}
             <div class="col-xs-12 col-sm-12 col-md-12"> 
                 <div class="form-group">
-                    <label for="role" class="col-sm-3 control-label">Name:</label>
-                    <div class="col-sm-2">
-                        <input type="text" name="name" id="name" class="form-control" value="" placeholder="Name">
-                    </div>
+                    <strong>Name:</strong>
+                    <input type="text" name="name" id="name" class="form-control" value="" placeholder="Name">            
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12"> 
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password:</label>
-                    <div class="col-sm-2">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" minlength="6" required>
-                    </div>
+                    <strong>Password:</strong>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" minlength="6" required>                
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Confirm Password:</label>
-                    <div class="col-sm-2">
-                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirm password" minlength="6" required>
-                    </div>
+                    <strong>Confirm Password:</strong>
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirm password" minlength="6" required>                    
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email:</label>
-                    <div class="col-sm-2">
-                        <input type="email" name="email" id="email" class="form-control" value="" placeholder="Email">
-                    </div>
+                    <strong>Email:</strong>
+                    <input type="email" name="email" id="email" class="form-control" value="" placeholder="Email">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12"> 
                 <div class="form-group">
-                    <label for="role" class="col-sm-3 control-label">Role:</label>
-                    <div class="col-sm-2">
-                        <select name="role" class="from-control input-sm">
-                            @foreach($roles as $role)
-                            <option value="{{$role}}"
-                            @if($role=='user') selected @endif
-                            >{{$role}}</option>
-                        @endforeach
-                        </select>
-                    </div>
+                    <strong>Role:</strong>                    
+                    <select name="role" class="from-control input-sm">
+                        @foreach($roles as $role)
+                        <option value="{{$role}}"
+                        @if($role=='user') selected @endif
+                        >{{$role}}</option>
+                    @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
