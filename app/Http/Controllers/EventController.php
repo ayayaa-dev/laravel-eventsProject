@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    public function listLimit(){
+        $events = Event::orderBy('date_event', 'desc')->take(3)->get();
+        return view('startMainPage', compact('events'));
+    }
     /**
      * Display a listing of the resource.
      */
@@ -52,7 +56,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('events.detail', compact('event'));
     }
 
     /**

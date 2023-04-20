@@ -17,19 +17,25 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('startMainPage'); // start Main page
+// Route::get('/', function () {
+    // return view('startMainPage'); // start Main page
     // return view('start'); // start Login form
-});
-// Login to admin panel
+// });
+// Main page routes
+Route::get('/', [EventController::class, 'listLimit']); // 3 events on home page
+Route::get('/show/{event}', [EventController::class, 'show']); // info about a single event
+
+// Login / Logout
 Route::get('/login', [AuthController::class, 'login'])->name('login'); // view login form page
 Route::post('/login', [AuthController::class, 'authenticate']); // authenticate credentials in login form
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-// Register user
+
+// Registration
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/signup', [UserController::class, 'register_store']);
 // Route::get('/registerResult', [UserController::class, 'register_store']);
 
+// Dashboard routes
 Route::group(['middleware' => ['auth']], function () {
     // Only for authorized users
     Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
