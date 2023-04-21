@@ -7,9 +7,30 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function listLimit(){
+    public function listLimit()
+    {
         $events = Event::orderBy('date_event', 'desc')->take(3)->get();
         return view('startMainPage', compact('events'));
+    }
+    public function fullList()
+    {
+        $events = Event::orderBy('date_event', 'desc')->get();
+        return view('events.eventList', compact('events'));
+    }
+    public function search(Request $request)
+    {
+        $events = Event::where([
+            ['title', '!=', Null],
+            [function($query) use ($request) {
+                if (($event = $request->events)) {
+                    $query->orWhere('title', "LIKE", '%'.$event.'%')->get();
+                }
+            }]
+        ])
+            ->orderBy('date_event', 'desc')->get();
+            // ->paginate(10);
+        
+        return view('events.searchResult', compact('events'));
     }
     /**
      * Display a listing of the resource.

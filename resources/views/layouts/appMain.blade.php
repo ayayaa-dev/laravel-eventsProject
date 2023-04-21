@@ -12,8 +12,8 @@
     <link href='{{ asset("components/css/font-awesome/css/font-awesome.min.css") }}' rel="stylesheet"> 
     <!-- Custom Theme Style -->
     <link href='{{ asset("components/css/custom.min.css") }}' rel="stylesheet">
-    <link rel="stylesheet" href="components/css/style.css">
-    <title>Main Page</title>
+    <link rel="stylesheet" href='{{ asset("components/css/style.css") }}'>
+    <title>Events Manager</title>
 </head>
 <body>
     <header>
@@ -64,7 +64,7 @@
         </div> --}}
     <main>
         <section>
-            <div class="container">
+            <div class="container" style="width: 60%">
                 <div class="row">
                     <div class="col-md-12">                    
                         @yield('content')
@@ -73,9 +73,9 @@
             </div>
         </section>
     </main>
-    <hr>
     <footer>
-		<div>
+        <hr>
+        <div>
             <p>&copy; 2023 IVKHK. Daniil Divissenko. JPTV20</p>					
 		</div>
 	</footer>

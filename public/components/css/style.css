@@ -1,12 +1,18 @@
+body {
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+}
 footer {
-    display:flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     width: 100%;
     margin-top: auto;
     margin-left: 0px;
     text-align: center;
     color: #444;
     background: #fff;
+    padding: 0
 }
 ul li a:hover {
     background-color: grey !important;

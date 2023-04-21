@@ -21,10 +21,7 @@ use App\Http\Controllers\AuthController;
     // return view('startMainPage'); // start Main page
     // return view('start'); // start Login form
 // });
-// Main page routes
-Route::get('/', [EventController::class, 'listLimit']); // 3 events on home page
-Route::get('/show/{event}', [EventController::class, 'show']); // info about a single event
-
+// ----------------------------- ROUTES
 // Login / Logout
 Route::get('/login', [AuthController::class, 'login'])->name('login'); // view login form page
 Route::post('/login', [AuthController::class, 'authenticate']); // authenticate credentials in login form
@@ -34,6 +31,16 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/signup', [UserController::class, 'register_store']);
 // Route::get('/registerResult', [UserController::class, 'register_store']);
+
+// Main page routes
+Route::get('/', [EventController::class, 'listLimit']); // 3 events on home page
+Route::get('/show/{event}', [EventController::class, 'show']); // info about a single event
+Route::post('search', [EventController::class, 'search']);
+Route::get('/search', [EventController::class, 'search']); // search events
+
+// Events list page
+Route::get('/events', [EventController::class, 'fullList']);
+
 
 // Dashboard routes
 Route::group(['middleware' => ['auth']], function () {
