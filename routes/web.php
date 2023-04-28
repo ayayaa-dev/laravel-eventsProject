@@ -35,7 +35,7 @@ Route::post('/signup', [UserController::class, 'register_store']);
 // Main page routes
 Route::get('/', [EventController::class, 'listLimit']); // 3 events on home page
 Route::get('/show/{event}', [EventController::class, 'show']); // info about a single event
-Route::post('search', [EventController::class, 'search']);
+// Search
 Route::get('/search', [EventController::class, 'search']); // search events
 
 // Events list page

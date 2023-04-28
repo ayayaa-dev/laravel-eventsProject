@@ -18,50 +18,46 @@
 <body>
     <header>
         <div class="navbar navbar-default bg-dark" role="navigation" style="justify-content: center;">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                <!-- menu -->
-                <div class="collapse navbar-collapse">
-                    <a class="navbar-brand" href="/">Events Manager</a> 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Events Manager</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <ul class="navbar-nav navbar-left">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/events') }}">Events</a>
-                        </li>
-                    </ul>                                     
-                    <!-- Right Side Of Navbar -->
-                    <form class="d-flex mx-3" method="GET" action="{{ url('/search') }}">
-                        <input placeholder="Search event " type="text" name="search" class="me-sm-2 form-control">  
-                        <button type="submit" class="btn btn-outline-success">Search</button>
-                    </form>
-                    <ul class="navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}" class="nav-link">Login</a></li>
-                        <li><a href="{{ url('/register') }}" class="nav-link">Register</a></li>
-                        @else
-                        <li><a href="{{ url('/dashboard') }}" class="nav-link">Admin panel</a></li>
-                        <div class="dropdown ms-5">
-                            <a class="btn dropdown-toggle text-white mx-0 my-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href={{url('/profile/'.Auth::user()->id )}}>Profile</a></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                            </ul>
-                        @endif
-                    </ul>   
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/events') }}">Events</a>
+                            </li>
+                            <!-- Authentication Links -->
+                            @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}" class="nav-link">Login</a></li>
+                            <li><a href="{{ url('/register') }}" class="nav-link">Register</a></li>
+                            @else
+                            <li><a href="{{ url('/dashboard') }}" class="nav-link">Admin panel</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href={{url('/profile/'.Auth::user()->id )}}>Profile</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                            @endif
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
-        <!-- Left Side Of Navbar -->
-        {{-- <div class="me-auto navbar-nav">
-        </div> --}}
     <main>
         <section>
             <div class="container" style="width: 60%">

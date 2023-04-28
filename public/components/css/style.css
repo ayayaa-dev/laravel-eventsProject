@@ -14,8 +14,21 @@ footer {
     background: #fff;
     padding: 0
 }
+ul li a {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem 0 0.5rem;
+    text-decoration: none;
+}
 ul li a:hover {
     background-color: grey !important;
     text-decoration: none;
-    
+    display: block;
+    border-radius: 5%;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.dropdown-item {
+    margin: 0;
+}
+.dropdown-item ul li a:hover {
+    background-color: lightgrey !important;
 }

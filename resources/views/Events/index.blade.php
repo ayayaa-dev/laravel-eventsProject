@@ -10,7 +10,7 @@
         <a href="addevent" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
         
         @if (count($events ?? '') > 0)
-        <table id="datatable" class="table table-striped table-bordered">
+        <table id="datatable" class="table table-light table-hover table-bordered">
             <thead>
                 <tr>
                     <th width="2%">NN</th>

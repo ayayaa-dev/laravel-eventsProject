@@ -27,7 +27,7 @@
         </div>
         <div style="display:flex;align-items:center;flex-direction:column;">
         @if (count($users ?? '') > 0)
-        <table id="datatable" class="table table-striped table-bordered" style="width:40%">
+        <table id="datatable" class="table table-light table-hover table-bordered" style="width:40%">
             <thead>
                 <tr>
                     <th width="15%">Name</th>

@@ -18,7 +18,7 @@
     </div>
     <div class="d-flex justify-content-center mt-4">
         <a href="../events" class="btn btn-primary">Back to event list</a>
-        <a href="#" class="btn btn-primary">Register for the event</a>
+        <a href="{{ url('../registerEvent/'.$event->id) }}" class="btn btn-primary">Register for the event</a>
     </div>
 </div>
 @endsection

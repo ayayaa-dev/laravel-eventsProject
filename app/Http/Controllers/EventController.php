@@ -19,18 +19,13 @@ class EventController extends Controller
     }
     public function search(Request $request)
     {
-        $events = Event::where([
-            ['title', '!=', Null],
-            [function($query) use ($request) {
-                if (($event = $request->events)) {
-                    $query->orWhere('title', "LIKE", '%'.$event.'%')->get();
-                }
-            }]
-        ])
-            ->orderBy('date_event', 'desc')->get();
-            // ->paginate(10);
+        if (request('search')) {
+            $events = Event::where('title', 'LIKE', '%'. request('search').'%')->get();
+        } else {
+            $events = Event::none();
+        }
         
-        return view('events.searchResult', compact('events'));
+        return view('events.searchResult', compact('events'))->with('events', $events);
     }
     /**
      * Display a listing of the resource.

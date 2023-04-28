@@ -68,7 +68,10 @@
                       <li><a href="{{ url('/users') }}">Users List</a></li>					  
                     </ul>
                   </li> 
-                  @endif         
+                  @endif  
+                  <li class="d-flex justify-content-center" style="margin-top: 1rem;">
+                    <a href="/" class="btn btn-primary btn-sm btn-flat w-75"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to main site</a>    
+                  </li>
                 </ul>
               </div>  
             </div>
