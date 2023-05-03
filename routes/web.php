@@ -41,6 +41,9 @@ Route::get('/search', [EventController::class, 'search']); // search events
 // Events list page
 Route::get('/events', [EventController::class, 'fullList']);
 
+// Event registration page
+Route::get('/registerEvent/{event}', [EventController::class, 'registerEventPage']);
+Route::post('/registerEvent/{event}', [EventController::class, 'registerEvent']);
 
 // Dashboard routes
 Route::group(['middleware' => ['auth']], function () {

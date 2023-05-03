@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Register_event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -19,12 +20,8 @@ class EventController extends Controller
     }
     public function search(Request $request)
     {
-        if (request('search')) {
-            $events = Event::where('title', 'LIKE', '%'. request('search').'%')->get();
-        } else {
-            $events = Event::none();
-        }
-        
+        $events = Event::where('title', 'LIKE', '%'. request('search').'%')->get();
+
         return view('events.searchResult', compact('events'))->with('events', $events);
     }
     /**
@@ -75,6 +72,29 @@ class EventController extends Controller
         return view('events.detail', compact('event'));
     }
 
+    public function registerEventPage(Event $event)
+    {
+        return view('events.registerEvent', compact('event'));
+    }
+    public function registerEvent(Request $request, Event $event) 
+    {
+        $request->validate([
+            'fullName' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'group' => 'required|string|max:8',
+            'memberCount' => 'required|numeric|max:255',
+        ]);
+        Register_event::create([
+            'contact_person' => $request->fullName,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'group_name' => $request->group,
+            'number_members' => $request->memberCount,
+            'events_id' => rtrim($event->id),
+        ]);
+        return view('events.registerResult', compact('event', 'request'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
