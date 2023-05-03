@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -63,6 +64,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/editevent/{event}', [EventController::class,'update']);
         // DELETE event
         Route::delete('/eventlist/{event}', [EventController::class,'destroy']);
+        // Event registration list
+        Route::get('/registerlist', [RegisterController::class, 'index']);
     });
     
     // for Admin role
